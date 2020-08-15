@@ -1,0 +1,305 @@
+package org.apache.jsp;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.jsp.*;
+import java.text.NumberFormat;
+import model.SanPham;
+import dao.SanPhamDAOImpl;
+
+public final class detail_jsp extends org.apache.jasper.runtime.HttpJspBase
+    implements org.apache.jasper.runtime.JspSourceDependent {
+
+  private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
+
+  private static java.util.List<String> _jspx_dependants;
+
+  private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
+
+  public java.util.List<String> getDependants() {
+    return _jspx_dependants;
+  }
+
+  public void _jspService(HttpServletRequest request, HttpServletResponse response)
+        throws java.io.IOException, ServletException {
+
+    PageContext pageContext = null;
+    HttpSession session = null;
+    ServletContext application = null;
+    ServletConfig config = null;
+    JspWriter out = null;
+    Object page = this;
+    JspWriter _jspx_out = null;
+    PageContext _jspx_page_context = null;
+
+    try {
+      response.setContentType("text/html; charset=utf-8");
+      pageContext = _jspxFactory.getPageContext(this, request, response,
+      			null, true, 8192, true);
+      _jspx_page_context = pageContext;
+      application = pageContext.getServletContext();
+      config = pageContext.getServletConfig();
+      session = pageContext.getSession();
+      out = pageContext.getOut();
+      _jspx_out = out;
+      _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
+
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\r\n");
+      out.write("<html>\r\n");
+      out.write("    <head>\r\n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\r\n");
+      out.write("        <title>Insert title here</title>\r\n");
+      out.write("        <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">\r\n");
+      out.write("        <link href=\"css/font-awesome.min.css\" rel=\"stylesheet\">\r\n");
+      out.write("        <link href=\"css/prettyPhoto.css\" rel=\"stylesheet\">\r\n");
+      out.write("        <link href=\"css/price-range.css\" rel=\"stylesheet\">\r\n");
+      out.write("        <link href=\"css/animate.css\" rel=\"stylesheet\">\r\n");
+      out.write("        <link href=\"css/main.css\" rel=\"stylesheet\">\r\n");
+      out.write("        <link href=\"css/responsive.css\" rel=\"stylesheet\">\r\n");
+      out.write("          <link href=\"css/phong_to_anh.css\" rel=\"stylesheet\">\r\n");
+      out.write("        <script src=\"js/jquery.js\"></script>\r\n");
+      out.write("        <script src=\"js/jquery-1.12.0.min\"></script>\r\n");
+      out.write("        <script src=\"js/bootstrap.min.js\"></script>\r\n");
+      out.write("        <script src=\"js/jquery.scrollUp.min.js\"></script>\r\n");
+      out.write("        <script src=\"js/price-range.js\"></script>\r\n");
+      out.write("        <script src=\"js/jquery.prettyPhoto.js\"></script>\r\n");
+      out.write("        <script src=\"js/main.js\"></script>\r\n");
+      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"css/scrollbar.css\"/>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"js/smoothscroll.js\"></script>\r\n");
+      out.write("        <script src=\"src/jquery.spritezoom.js\"></script>\r\n");
+      out.write("        \r\n");
+      out.write("    </head>\r\n");
+      out.write("    <body>\r\n");
+      out.write("        <div id=\"fb-root\"></div>\r\n");
+      out.write("        <script>(function (d, s, id) {\r\n");
+      out.write("                var js, fjs = d.getElementsByTagName(s)[0];\r\n");
+      out.write("                if (d.getElementById(id))\r\n");
+      out.write("                    return;\r\n");
+      out.write("                js = d.createElement(s);\r\n");
+      out.write("                js.id = id;\r\n");
+      out.write("                js.src = \"//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.5&appId=538269923004861\";\r\n");
+      out.write("                fjs.parentNode.insertBefore(js, fjs);\r\n");
+      out.write("            }(document, 'script', 'facebook-jssdk'));</script>\r\n");
+      out.write("        <script type=\"text/javascript\">\r\n");
+      out.write("            $(function () {\r\n");
+      out.write("                $(\".zoom1\").spritezoom({\r\n");
+      out.write("                    border: 6,\r\n");
+      out.write("                   source: \"images/f20.jpg\",\r\n");
+      out.write("                    zSource: \"images/8-108437-1372707064_500x0.jpg\",\r\n");
+      out.write("                    layout: \"right\",\r\n");
+      out.write("                });\r\n");
+      out.write("\r\n");
+      out.write("                $(\".zoom2\").spritezoom({\r\n");
+      out.write("                    border: 6,\r\n");
+      out.write("                    source: \"images/f20.jpg\",\r\n");
+      out.write("                    zSource: \"images/8-108437-1372707064_500x0.jpg\",\r\n");
+      out.write("                    layout: \"magnify\"\r\n");
+      out.write("                });\r\n");
+      out.write("            });\r\n");
+      out.write("\r\n");
+      out.write("        </script>\r\n");
+      out.write("        ");
+
+            SanPhamDAOImpl sanPhamDAO = new SanPhamDAOImpl();
+            SanPham sp = sanPhamDAO.getChiTietSanPham(request
+                    .getParameter("ma_san_pham"));
+            String ma_san_pham = request.getParameter("ma_san_pham");
+            NumberFormat nf = NumberFormat.getInstance();
+            nf.setMinimumIntegerDigits(0);
+        
+      out.write("\r\n");
+      out.write("        ");
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "header.jsp", out, false);
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("        <section>\r\n");
+      out.write("            <div class=\"container\">\r\n");
+      out.write("                <div class=\"row\">\r\n");
+      out.write("                ");
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "category.jsp", out, false);
+      out.write("\r\n");
+      out.write("                    <div class=\"col-sm-9 padding-right\">\r\n");
+      out.write("                        <div class=\"product-details\">\r\n");
+      out.write("                            <!--product-details-->\r\n");
+      out.write("                            <div class=\"col-sm-5\">\r\n");
+      out.write("                                <div class=\"view-product\">\r\n");
+      out.write("                                    <div class=\"example zoom2\"><img src=\"images/");
+      out.print(sp.getHinh_anh());
+      out.write("\" alt=\"\" /></div>\r\n");
+      out.write("                                <h3>ZOOM</h3>\r\n");
+      out.write("                            </div>\r\n");
+      out.write("                            <div id=\"similar-product\" class=\"carousel slide\"\r\n");
+      out.write("                                 data-ride=\"carousel\">\r\n");
+      out.write("\r\n");
+      out.write("                                <!-- Wrapper for slides -->\r\n");
+      out.write("                                <div class=\"carousel-inner\">\r\n");
+      out.write("                                    <div class=\"item active\">\r\n");
+      out.write("                                        <a href=\"\"><img src=\"images/f20.jpg\"\r\n");
+      out.write("                                                        alt=\"\"></a> <a href=\"\"><img\r\n");
+      out.write("                                                src=\"images/f24.jpg\" alt=\"\"></a> <a\r\n");
+      out.write("                                            href=\"\"><img src=\"images/f21.jpg\"\r\n");
+      out.write("                                                     alt=\"\"></a>\r\n");
+      out.write("                                    </div>\r\n");
+      out.write("                                    <div class=\"item\">\r\n");
+      out.write("                                        <a href=\"\"><img src=\"images/f21.jpg\"\r\n");
+      out.write("                                                        alt=\"\"></a> <a href=\"\"><img\r\n");
+      out.write("                                                src=\"images/f20.jpg\" alt=\"\"></a> <a\r\n");
+      out.write("                                            href=\"\"><img src=\"images/f24.jpg\"\r\n");
+      out.write("                                                     alt=\"\"></a>\r\n");
+      out.write("                                    </div>\r\n");
+      out.write("                                    <div class=\"item\">\r\n");
+      out.write("                                        <a href=\"\"><img src=\"images/f24.jpg\"\r\n");
+      out.write("                                                        alt=\"\"></a> <a href=\"\"><img\r\n");
+      out.write("                                                src=\"images/f21.jpg\" alt=\"\"></a> <a\r\n");
+      out.write("                                            href=\"\"><img src=\"images/f20.jpg\"\r\n");
+      out.write("                                                     alt=\"\"></a>\r\n");
+      out.write("                                    </div>\r\n");
+      out.write("\r\n");
+      out.write("                                </div>\r\n");
+      out.write("\r\n");
+      out.write("                                <!-- Controls -->\r\n");
+      out.write("                                <a class=\"left item-control\" href=\"#similar-product\"\r\n");
+      out.write("                                   data-slide=\"prev\"> <i class=\"fa fa-angle-left\"></i>\r\n");
+      out.write("                                </a> <a class=\"right item-control\" href=\"#similar-product\"\r\n");
+      out.write("                                        data-slide=\"next\"> <i class=\"fa fa-angle-right\"></i>\r\n");
+      out.write("                                </a>\r\n");
+      out.write("                            </div>\r\n");
+      out.write("\r\n");
+      out.write("                        </div>\r\n");
+      out.write("                        <div class=\"col-sm-7\">\r\n");
+      out.write("                            <div class=\"product-information\">\r\n");
+      out.write("                                <!--/product-information-->\r\n");
+      out.write("                                <img src=\"images/product-details/new.jpg\" class=\"newarrival\"\r\n");
+      out.write("                                     alt=\"\" />\r\n");
+      out.write("                                <h2>");
+      out.print(sp.getTen_san_pham());
+      out.write("</h2>\r\n");
+      out.write("                                <p>\r\n");
+      out.write("                                    Mã sản phẩm :\r\n");
+      out.write("                                    ");
+      out.print(sp.getMa_san_pham());
+      out.write("\r\n");
+      out.write("                                </p>\r\n");
+      out.write("                                <span> <span>");
+      out.print(nf.format(sp.getDon_gia()));
+      out.write(" VNĐ</span>\r\n");
+      out.write("                                </span>\r\n");
+      out.write("                                <p><a class=\"btn btn-fefault cart\" href=\"GioHangServlet2?command=plus&ma_san_pham=");
+      out.print(sp.getMa_san_pham());
+      out.write("&cartID=");
+      out.print(System.currentTimeMillis());
+      out.write("\">\r\n");
+      out.write("                                        <i class=\"fa fa-shopping-cart\"></i> Thêm vào giỏ hàng\r\n");
+      out.write("                                    </a></p>\r\n");
+      out.write("                                <p>\r\n");
+      out.write("                                    <b>Số lượng :  ");
+      out.print( sp.getSo_luong());
+      out.write("</b> \r\n");
+      out.write("                                </p>\r\n");
+      out.write("                                <p>\r\n");
+      out.write("                                    <b>Giảm giá : ");
+      out.print(nf.format(sp.getGiam_gia()));
+      out.write(" VNĐ </b>\r\n");
+      out.write("                                </p>\r\n");
+      out.write("                                <p>\r\n");
+      out.write("                                    <b>Mô tả : ");
+      out.print(sp.getMo_ta());
+      out.write("</b>\r\n");
+      out.write("                                </p>\r\n");
+      out.write("                                <a href=\"\"><img src=\"images/product-details/share.png\"\r\n");
+      out.write("                                                class=\"share img-responsive\" alt=\"\" /></a>\r\n");
+      out.write("                            </div>\r\n");
+      out.write("                            <!--/product-information-->\r\n");
+      out.write("                        </div>\r\n");
+      out.write("                    </div>\r\n");
+      out.write("                    <!--/product-details-->\r\n");
+      out.write("\r\n");
+      out.write("                    <div class=\"category-tab shop-details-tab\">\r\n");
+      out.write("                        <!--category-tab-->\r\n");
+      out.write("                        <div class=\"col-sm-12\">\r\n");
+      out.write("                            <ul class=\"nav nav-tabs\">\r\n");
+      out.write("                                <!--<li><a href=\"#details\" data-toggle=\"tab\">Chi tiết sản phẩm</a></li> -->\r\n");
+      out.write("                                <li><a href=\"#companyprofile\" data-toggle=\"tab\">Thông tin công ty\r\n");
+      out.write("                                    </a></li>\r\n");
+      out.write("                                <!--           <li><a href=\"#tag\" data-toggle=\"tab\">Tag</a></li>  -->\r\n");
+      out.write("                                <li><a href=\"#reviews\" data-toggle=\"tab\">Bình luận(5)</a></li>\r\n");
+      out.write("                                <li class=\"active\"><a href=\"#facebook\" data-toggle=\"tab\">Bình luận Facebook</a></li>\r\n");
+      out.write("                            </ul>\r\n");
+      out.write("                        </div>\r\n");
+      out.write("                        <div class=\"tab-content\">\r\n");
+      out.write("                            <div class=\"tab-pane fade\" id=\"details\">\r\n");
+      out.write("\r\n");
+      out.write("                            </div>\r\n");
+      out.write("\r\n");
+      out.write("                            <div class=\"tab-pane fade in active\" id=\"companyprofile\">\r\n");
+      out.write("                                <p>Microsoft Office là một bộ phần mềm văn phòng dành cho máy tính cá nhân, máy chủ và là các dịch vụ chạy trên hệ điều hành Microsoft Windows và Mac OS X. Office được giới thiệu lần đầu vào ngày 1 tháng 8 năm 1989, được tiếp thị như tên của một gói các ứng dụng, phiên bản đầu tiên bao gồm Microsoft Word, Microsoft Excel và Microsoft Powerpoint. Office hiện được hơn một tỷ người sử dụng trên thế giới.[2] Phiên bản hiện tại là Office 365 dành cho Windows 10, được phát hành vào ngày 22 tháng 9 năm 2015 và Office 365 dành cho Mac OS X, phát hành vào ngày 9 tháng 7 năm 2015.</br></p>\r\n");
+      out.write("                                <p>Trước đây, Microsoft đã giới thiệu một phần mềm bảng tính được gọi là Multiplan vào năm 1982, phần mềm rất được phổ biến trên hệ điều hành CP/M, nhưng trên MS-DOS thì nó đã không còn được như vậy. Điều đó đã thúc đẩy sự phát triển 1 chương trình bảng tính mới mang tên Excel với khẩu hiệu \"'do everything 1-2-3 does and do it better'\". Phiên bản đầu tiên của Excel được phát hành lần đầu tiên trên máy MAC năm 1985 và trên Windows (đánh số 2.0 xếp ngang hành với MAC và được tích hợp với môi trường run-time của windows) vào tháng 11 năm 1987. Lotus đã quá chậm trong việc phát hành 1-2-3 cho Windows và cho đến cuối năm 1988, Excel bắt đầu bán được nhiều hơn so với 1-2-3 và giúp Microsoft đạt được vị trí hãng phát triển phần mềm hàng đầu. Trung bình cứ 2 năm Microsoft lại ra mắt phiên bản mới của Excel 1 lần hoặc lâu hơn. Phiên bản hiện thời là Excel 16 hay còn gọi là Microsoft Excel 2016.</p>\r\n");
+      out.write("                            </div>\r\n");
+      out.write("\r\n");
+      out.write("                            <div class=\"tab-pane fade\" id=\"tag\">\r\n");
+      out.write("\r\n");
+      out.write("                            </div>\r\n");
+      out.write("                            <div class=\"tab-pane fade active in\" id=\"reviews\" >\r\n");
+      out.write("                                <div class=\"col-sm-12\">\r\n");
+      out.write("                                    <ul>\r\n");
+      out.write("                                        <li><a href=\"\"><i class=\"fa fa-user\"></i>EUGEN</a></li>\r\n");
+      out.write("                                        <li><a href=\"\"><i class=\"fa fa-clock-o\"></i>12:41 PM</a></li>\r\n");
+      out.write("                                        <li><a href=\"\"><i class=\"fa fa-calendar-o\"></i>31 DEC 2014</a></li>\r\n");
+      out.write("                                    </ul>\r\n");
+      out.write("                                    <p>Chúng tôi rất mong nhận được những ý kiến đóng góp của các bạn,để ngày càng đáp ứng nhu cầu về sản phẩm và khắc phục nhược điểm để phục vụ tốt hơn cho quý khách trong tương lại.Xin chân thanh càm ơn :D </p>\r\n");
+      out.write("                                    <p><b>Write Your Review</b></p>\r\n");
+      out.write("\r\n");
+      out.write("                                    <form action=\"#\">\r\n");
+      out.write("                                        <span>\r\n");
+      out.write("                                            <input type=\"text\" placeholder=\"Your Name\"/>\r\n");
+      out.write("                                            <input type=\"email\" placeholder=\"Email Address\"/>\r\n");
+      out.write("                                        </span>\r\n");
+      out.write("                                        <textarea name=\"\" ></textarea>\r\n");
+      out.write("                                        <b>Rating: </b> <img src=\"images/product-details/rating.png\" alt=\"\" />\r\n");
+      out.write("                                        <button type=\"button\" class=\"btn btn-default pull-right\">\r\n");
+      out.write("                                            Submit\r\n");
+      out.write("                                        </button>\r\n");
+      out.write("                                    </form>\r\n");
+      out.write("                                </div>\r\n");
+      out.write("                            </div>\r\n");
+      out.write("                            <div class=\"tab-pane fade in active\" id=\"facebook\">\r\n");
+      out.write("                                <div class=\"col-sm-12\">\r\n");
+      out.write("                                    <div class=\"fb-comments\" data-href=\"detail.jsp?p=");
+      out.print(ma_san_pham);
+      out.write("\" data-width=\"600\" data-numposts=\"5\"></div>\r\n");
+      out.write("                                </div>\r\n");
+      out.write("                            </div>\r\n");
+      out.write("\r\n");
+      out.write("                        </div>\r\n");
+      out.write("                    </div>\r\n");
+      out.write("                    <!--/category-tab-->\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("                </div>\r\n");
+      out.write("            </div>\r\n");
+      out.write("        </div>\r\n");
+      out.write("    </section>\r\n");
+      out.write("\r\n");
+      out.write("    ");
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "footer.jsp", out, false);
+      out.write("\r\n");
+      out.write("</body>\r\n");
+      out.write("</html>");
+    } catch (Throwable t) {
+      if (!(t instanceof SkipPageException)){
+        out = _jspx_out;
+        if (out != null && out.getBufferSize() != 0)
+          out.clearBuffer();
+        if (_jspx_page_context != null) _jspx_page_context.handlePageException(t);
+        else throw new ServletException(t);
+      }
+    } finally {
+      _jspxFactory.releasePageContext(_jspx_page_context);
+    }
+  }
+}

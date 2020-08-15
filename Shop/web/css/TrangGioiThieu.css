@@ -1,0 +1,87 @@
+#panles{
+	width:1212px;
+	height:676px;
+	position: relative;
+	overflow:hidden;
+	background: white;
+}
+.panelHolder{
+	float:left;
+	position: relative;
+	padding-right: 8px;
+	width:100px;
+	height:676px;
+	overflow:hidden;
+	background:white;
+}
+.contentHolder{
+	float:left;
+	position: relative;
+	background:white;
+	width:772px;
+}
+.tab{
+	width:100px;
+	position: absolute; 
+	z-index: 1;
+}
+.model{
+	position: absolute; 
+	opacity: 0; 
+	width:100%;
+	height:676px;
+}
+.panelTitle.last{
+	padding: 0;	
+}
+.active.panelHolder{
+	width: 772px;
+}
+.active .tab{
+	opacity: 0;
+}
+.active .model{
+	visibility: visible;
+	z-index: 0;
+	opacity: 1;
+}
+
+/*Thats all. I hope you enjoyed it.
+Thanks :)*/
+/***************************************************************/
+/*************** Footer Bar Style ******************************/
+/***************************************************************/
+.footer-bar
+{
+    display: block;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    background: #111;
+    border-top: 1px solid #E62600;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+.footer-bar .article-wrapper{
+    font-family: arial, sans-serif;
+    font-size: 14px;
+    color: #888;
+    float: left;
+    margin-left: 10%;
+}
+.footer-bar .article-link a, .footer-bar .article-link a:visited{
+    text-decoration: none;
+    color: #fff;
+}
+.site-link a, .site-link a:visited{
+    color: #888;
+    font-size: 14px;
+    font-family: arial, sans-serif;
+    float: right;
+    margin-right: 10%;
+    text-decoration: none;
+}
+.site-link a:hover{
+    color: #E62600;
+}

@@ -1,0 +1,12 @@
+SMAP
+validateCAPCHA_jsp.java
+JSP
+*S JSP
+*F
++ 0 validateCAPCHA.jsp
+validateCAPCHA.jsp
+*L
+1,12:46
+13,18:59
+30,5:77
+*E
